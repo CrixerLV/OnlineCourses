@@ -11,7 +11,7 @@
     font-family: 'Urbanist', sans-serif;
     font-weight: 400;
 }
-body, html {height: 100%; }
+body, html {height: 100%;width: 100%; }
 
 .nav-bar{
     width: 100%;
@@ -40,6 +40,65 @@ body, html {height: 100%; }
     margin-left: 15px;
     cursor: pointer;
 }
+
+.nav-bar-menu-mobile{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.nav-bar-menu-mobile i{
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+    top: 30px;
+}
+
+#nav-bar-menu-mobile-dropdown{
+    display: none;
+    width: 200px;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    list-style-type: none;
+    height: 300px;
+    padding: 30px;
+    top: 0;
+}
+
+
+#nav-bar-menu-mobile-dropdown li{
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(80, 160, 250,30%);
+}
+#nav-bar-menu-mobile-dropdown .sign-up-mobile{
+    bottom: 30px;
+    position: absolute;
+    display: flex;
+}
+#nav-bar-menu-mobile-dropdown .sign-up-mobile button{
+    border: 0;
+    cursor: pointer;
+    background-color: rgb(80, 160, 250);
+    margin-left: 10px;
+}
+
+#nav-bar-menu-mobile-dropdown a{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: 1000;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+#nav-bar-menu-mobile-dropdown a:hover{
+    background-color: black;
+    color: white;
+}
+
 
 .nav-search-bar{
     position: relative;
@@ -71,7 +130,6 @@ body, html {height: 100%; }
     border: 0;
     cursor: pointer;
     background-color: rgb(80, 160, 250);
-
 }
 
 .nav-bar-sl{
@@ -102,3 +160,25 @@ body, html {height: 100%; }
     cursor: pointer;
     color: rgba(0,0,0,30%);
 }
+
+@media only screen and (max-width: 1050px) {
+    .nav-search-bar{
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .nav-bar-menu{
+        display: none;
+    }
+    .nav-bar-sl{
+        display: none;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .nav-bar-menu-mobile{
+        display: flex;
+    }
+}
+  
