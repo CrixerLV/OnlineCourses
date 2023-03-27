@@ -15,3 +15,20 @@ function mobiledropdownoff() {
     x.style.display = "none";
   }
 }
+
+function redirectlogin(){
+  window.location = "../login.html";
+}
+function redirectsignup(){
+  window.location = "../signup.html";
+}
+
+function redirectCourses(){
+  window.location = "../courses.html";
+}
+function redirectHome(){
+  window.location = "../index.html";
+}
+function redirectInformation(){
+  window.location = "../information.html";
+}

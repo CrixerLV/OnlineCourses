@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+}
+body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
+    background-size: cover; }
+
+a:link {
+    text-decoration: none;
+}
+  
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+  
+a:hover {
+    text-decoration: none;
+}
+  
+a:active {
+    text-decoration: none;
+}
+
+#back{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    background-color: rgba(0,0,0,10%);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 25px;
+}
+#back:hover{
+    background-color: rgba(0,0,0,20%);
+}
+
+input{
+    outline: 0;
+    border: 0;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,10%);
+}
+
+.input-form{
+    background-color: rgba(255,255,255,100%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 480px;
+    border-radius: 15px;
+}
+.input-form img{
+    width: 160px;
+    position:absolute;
+    margin-left: 50%;
+    transform: translate(-50%,0);
+}
+
+.input-form form{
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%,-10%);
+}
+
+.input-form input[type="submit"]{
+    background-color: rgb(80, 160, 250);
+    cursor: pointer;
+    padding: 10px 25px;
+    margin-left: 50%;
+    transform: translate(-50%,0%);
+}
+.input-form a,label{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+.input-form a{
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgb(80, 160, 250);
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+}
