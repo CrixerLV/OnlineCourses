@@ -17,18 +17,18 @@ function mobiledropdownoff() {
 }
 
 function redirectlogin(){
-  window.location = "../login.html";
+  window.location = "login.php";
 }
 function redirectsignup(){
-  window.location = "../signup.html";
+  window.location = "signup.php";
 }
 
 function redirectCourses(){
-  window.location = "../courses.html";
+  window.location = "courses.php";
 }
 function redirectHome(){
-  window.location = "../index.html";
+  window.location = "index.php";
 }
 function redirectInformation(){
-  window.location = "../information.html";
+  window.location = "information.php";
 }
