@@ -99,32 +99,6 @@ body, html {height: 100%;width: 100%; }
     color: white;
 }
 
-
-.nav-search-bar{
-    position: relative;
-    width: 225px;
-    align-items: center;
-    display: flex;
-    margin-left: 100px;
-}
-
-.nav-search-bar img{
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 10px;
-    opacity: 50%;
-    cursor: pointer;
-}
-
-#searchbar{
-    border-radius: 50px;
-    border: 1px solid rgba(0,0,0,10%);
-    padding: 12px;
-    outline: 0;
-    width: 200px;
-}
-
 .nav-bar button{
     padding: 12px 25px;
     border: 0;
@@ -182,4 +156,72 @@ body, html {height: 100%;width: 100%; }
     background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
     background-size: cover;
     height: 100%;
+}
+
+.nav-bar-sl img{
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.nav-bar-sl img:hover{
+    scale: 1.2;
+    transition: scale 0.5s ease-in-out;
+}
+
+/* Profile Opened */
+
+
+#profile-side{
+    display: none;
+    width: 200px;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    list-style-type: none;
+    height: 600px;
+    padding: 30px;
+    top: 81px;
+}
+
+#profile-side-top{
+    position: absolute;
+    top:0px;
+    left: 0;
+    background-color: rgb(80, 160, 250);
+    width: 100%;
+}
+#profile-side-bottom{
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    background-color: rgb(80, 160, 250);
+    width: 100%;
+}
+#profile-side h1{
+    font-weight: 1000;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+#profile-side h2{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+#profile-side a{
+    position: absolute;
+    transform: translate(-50%,0);
+    left: 50%;
+    width: 100%;
+}
+#profile-side a button {
+    cursor: pointer;
+    width: 100%;
+    padding: 20px 0 20px;
+    outline: 0;
+    border: 0;
+    font-size: 17px;
+}
+#profile-side a,button:hover{
+    background-color: rgba(0,0,0,10%);
 }

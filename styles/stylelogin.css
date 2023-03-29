@@ -26,12 +26,6 @@ a:active {
     text-decoration: none;
 }
 
-#error{
-    text-align: center;
-    font-size: 15px;
-    z-index: 1;
-}
-
 #back{
     position: absolute;
     left: 5px;
@@ -69,6 +63,9 @@ input{
 .input-form h1{
     text-align: center;
     font-size: 15px;
+    position: relative;
+    top: 35%;
+    color: red;
 }
 
 .input-form img{

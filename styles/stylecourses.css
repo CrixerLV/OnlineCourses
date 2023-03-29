@@ -1,0 +1,72 @@
+
+/*Fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400;
+}
+body, html {height: 100%;width: 100%; }
+
+.nav-search-bar{
+    position: relative;
+    width: 225px;
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+}
+
+.nav-search-bar img{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    opacity: 50%;
+    cursor: pointer;
+}
+
+#searchbar{
+    border-radius: 50px;
+    border: 1px solid rgba(0,0,0,10%);
+    padding: 12px;
+    outline: 0;
+    width: 200px;
+}
+
+.main-info{
+    width: 100%;
+    height: fit-content;
+    background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
+    background-size: cover;
+    height: 100%;
+}
+
+.main-info-select{
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    align-items: center;
+    background-color: rgba(80, 160, 250,70%);
+}
+.main-info-select select{
+    padding: 10px 20px;
+    border: 0;
+    outline: 0;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.main-info-select input[type="submit"]{
+    padding: 10px 20px;
+    border: 0;
+    outline: 0;
+    right: 15px;
+    position: absolute;
+    background-color: white;
+}

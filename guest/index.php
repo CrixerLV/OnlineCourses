@@ -1,8 +1,3 @@
-<?php
-require("db_con.php");
-include("auth.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +5,10 @@ include("auth.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnlineCourses-HomePage</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/R.73b3ee8749998c6a22b219fd1c6ae291?rik=8Q9ro4mSpvT1XA&riu=http%3a%2f%2fwww.habitac.cl%2fassets%2fimg%2fglobal%2flogo.png&ehk=384eecrpF76HkVInIRcazWy16UeCjGvSW9uK%2btwzFRw%3d&risl=&pid=ImgRaw&r=0">
+    <script src="../js/script.js"></script>
 </head>
 <body>
     <div class="nav-bar">
@@ -34,7 +30,15 @@ include("auth.php");
                 <li>Home</li>
                 <li>Courses</li>
                 <li>Information</li>
+                <div class="sign-up-mobile">
+                    <button onclick="redirectlogin()">Login</button>
+                    <button>Sign up</button>
+                </div>
             </div>
+        </div>
+        <div class="nav-bar-sl">
+            <button onclick="redirectlogin()" >Login</button>
+            <button onclick="redirectsignup()" >Sign up</button>
         </div>
     </div>
     <div class="main-info">
