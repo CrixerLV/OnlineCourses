@@ -1,19 +1,10 @@
 function mobiledropdownon() {
-    var x = document.getElementById("nav-bar-menu-mobile-dropdown");
+    var x = document.getElementById("profile-side-mobile");
     if (x.style.display === "block") {
       x.style.display = "none";
     } else {
       x.style.display = "block";
     }
-}
-
-function mobiledropdownoff() {
-  var x = document.getElementById("nav-bar-menu-mobile-dropdown");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
 }
 
 function redirectlogin(){
@@ -23,15 +14,16 @@ function redirectsignup(){
   window.location = "../guest/signup.php";
 }
 
-function redirectCourses(){
-  window.location = "../guest/courses.php";
+function courses(){
+  document.getElementById("embed").src = "coursesloged.php"
 }
-function redirectHome(){
-  window.location = "../guest/index.php";
+function home(){
+  document.getElementById("embed").src = "indexloged.php"
 }
-function redirectInformation(){
-  window.location = "../guest/information.php";
+function info(){
+  document.getElementById("embed").src = "informationloged.php"
 }
+
 
 
 function redirectlogedCourses(){
@@ -47,6 +39,15 @@ function redirectlogedInformation(){
 
 function openprofile(){
   var x = document.getElementById("profile-side");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function openprofilemobile(){
+  var x = document.getElementById("profile-side-mobile");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {

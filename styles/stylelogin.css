@@ -93,7 +93,7 @@ input{
     display: flex;
     justify-content: center;
 }
-.input-form a{
+.input-form form a{
     padding: 10px 20px;
     margin: 10px;
     border-radius: 15px;
@@ -101,4 +101,21 @@ input{
     color: black;
     font-size: 14px;
     font-weight: 400;
+}
+
+@media only screen and (max-width: 400px) {
+    .input-form{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 300px;
+    }
+    .input-form form{
+        position: absolute;
+        left: 0;
+    }
+    .input-form img{
+        width: 130px
+    };
 }

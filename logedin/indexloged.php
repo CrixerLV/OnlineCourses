@@ -21,21 +21,40 @@ include("../backend/authorization.php");
             <img src="https://th.bing.com/th/id/R.73b3ee8749998c6a22b219fd1c6ae291?rik=8Q9ro4mSpvT1XA&riu=http%3a%2f%2fwww.habitac.cl%2fassets%2fimg%2fglobal%2flogo.png&ehk=384eecrpF76HkVInIRcazWy16UeCjGvSW9uK%2btwzFRw%3d&risl=&pid=ImgRaw&r=0">
         </div>
         <div class="nav-bar-menu">
-            <li style="text-decoration: underline;">Home</li>
-            <li onclick="redirectlogedCourses()">Courses</li>
-            <li onclick="redirectlogedInformation()">Information</li>
+            <li id="home" onclick="home()">Home</li>
+            <li id="courses" onclick="courses()">Courses</li>
+            <li id="info" onclick="info()">Information</li>
         </div>
         <div class="nav-bar-menu-mobile">
-            <i onclick="mobiledropdownon()" class="fa fa-bars"></i>
-            <div id="nav-bar-menu-mobile-dropdown">
-                <i onclick="mobiledropdownoff()" class="fa fa-bars"></i><br>
-                <li>Home</li>
-                <li>Courses</li>
-                <li>Information</li>
-            </div>
+            <i onclick="openprofilemobile()" class="fa fa-bars"></i>
         </div>
         <div class="nav-bar-sl">
             <img onclick="openprofile()" src=https://cdn-icons-png.flaticon.com/512/6522/6522516.png>
+        </div>
+    </div>
+    <div id="profile-side-mobile">
+        <div id="profile-side-top">
+            <h1>
+                <?php
+                    echo $_SESSION["name"], " " ,$_SESSION["lastname"];
+                ?>
+            </h1>
+            <h2>
+                <?php
+                    echo 'Title: ',$_SESSION["rank"];
+                ?>
+            </h2>
+            <img>
+        </div>
+        <div id="profile-side-middle">
+            <ul><li>Home</li></ul>
+            <ul><li>Courses</li></ul>
+            <ul><li>Information</li></ul>
+            <ul><li>Profile</li></ul>
+            <ul><li>Become a instructor</li></ul>
+        </div>
+        <div id="profile-side-bottom">
+            <a href="../backend/logout.php"><button>Sign out</button></a>
         </div>
     </div>
     <div id="profile-side">
@@ -52,19 +71,17 @@ include("../backend/authorization.php");
             </h2>
             <img>
         </div>
+        <div id="profile-side-middle">
+            <ul><li>Profile</li></ul>
+            <ul><li>Information</li></ul>
+            <ul><li>Become a instructor</li></ul>
+        </div>
         <div id="profile-side-bottom">
             <a href="../backend/logout.php"><button>Sign out</button></a>
         </div>
     </div>
     <div class="main-info">
-    <embed id="embed" class="html-embed" type="text/html" src="coursesloged.php" width="100%" height="100%">
-    </div>
-    <div class="main-footer">
-        <div class="main-footer-menu">
-            <li>Terms & Conditions</li>
-            <li>FAQ</li>
-            <li>@2023 OnlineCourses</li>
-        </div>
+        <embed id="embed" class="html-embed" type="text/html" src="haha.php" width="100%" height="100%">
     </div>
 </body>
 </html>

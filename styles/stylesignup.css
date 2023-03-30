@@ -104,3 +104,20 @@ input{
     font-size: 14px;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 400px) {
+    .input-form{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 300px;
+    }
+    .input-form form{
+        position: absolute;
+        left: 0;
+    }
+    .input-form img{
+        width: 110px
+    };
+}

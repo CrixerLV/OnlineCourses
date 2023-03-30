@@ -11,8 +11,7 @@
     font-family: 'Urbanist', sans-serif;
     font-weight: 400;
 }
-body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
-    background-size: cover; }
+body, html {height: 100%;width: 100%; }
 
 .nav-bar{
     width: 100%;
@@ -55,7 +54,7 @@ body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.c
     top: 30px;
 }
 
-.nav-bar button{
+.nav-bar-sl button{
     padding: 12px 25px;
     border: 0;
     cursor: pointer;
@@ -65,6 +64,23 @@ body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.c
 .nav-bar-sl{
     position: absolute;
     right: 20px;
+}
+.main-footer{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255,255,255,10%)
+}
+.main-footer-menu{
+    display: flex;
+    margin: auto;
+}
+.main-footer li{
+    list-style-type: none;
+    margin-left: 15px;
+    cursor: pointer;
+    color: rgba(0,0,0,30%);
 }
 
 @media only screen and (max-width: 1050px) {
@@ -91,6 +107,10 @@ body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.c
 /*Main Center Info*/
 .main-info{
     width: 100%;
+    height: fit-content;
+    background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
+    background-size: cover;
+    height: 100%;
 }
 
 .nav-bar-sl img{
@@ -98,83 +118,6 @@ body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.c
     border-radius: 50%;
     cursor: pointer;
 }
-
-/* Profile Opened */
-
-
-#profile-side{
-    display: none;
-    width: 200px;
-    position: absolute;
-    background-color: white;
-    right: 0;
-    list-style-type: none;
-    height: 600px;
-    padding: 30px;
-    top: 81px;
-}
-
-#profile-side-top{
-    position: absolute;
-    top:0px;
-    left: 0;
-    background-color: rgb(80, 160, 250);
-    width: 100%;
-    color: white;
-}
-#profile-side-bottom{
-    position: absolute;
-    bottom: 60px;
-    left: 0;
-    background-color: rgb(80, 160, 250);
-    width: 100%;
-}
-#profile-side h1{
-    margin-top: 10px;
-    font-size: 18px;
-    text-align: center;
-}
-#profile-side h2{
-    text-align: center;
-    font-size: 14px;
-    margin-top: 5px;
-}
-#profile-side a{
-    position: absolute;
-    transform: translate(-50%,0);
-    left: 50%;
-    width: 100%;
-}
-#profile-side a button {
-    cursor: pointer;
-    width: 100%;
-    padding: 20px 0 20px;
-    outline: 0;
-    border: 0;
-    font-size: 17px;
-}
-#profile-side a,button:hover{
-    background-color: rgba(0,0,0,10%);
-}
-#profile-side-middle {
-    position: absolute;
-    left: 0;
-    top: 72.5px;
-    text-align: center;
-    width: 100%;
-}
-#profile-side-middle ul{
-    padding: 20px 0px;
-    list-style-type: none;
-    cursor: pointer;
-}
-#profile-side-middle ul:nth-child(even){
-    background-color: rgba(0,0,0,5%);
-}
-#profile-side-middle ul:hover{
-    background-color: rgba(0,0,0,15%);
-}
-
 /*Mobile*/
 
 #profile-side-mobile{
@@ -184,33 +127,30 @@ body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.c
     background-color: white;
     right: 0;
     list-style-type: none;
-    height: 600px;
+    height: 300px;
     padding: 30px;
     top: 81px;
 }
-
-
-@media only screen and (max-width: 800px) {
-    #profile-side-mobile{
-        height: 460px;
-    }
-}
-
-#profile-side-mobile-top{
-    position: absolute;
-    top:0px;
-    left: 0;
-    background-color: rgb(80, 160, 250);
-    width: 100%;
-    color: white;
-}
 #profile-side-mobile-bottom{
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
     left: 0;
-    background-color: rgb(80, 160, 250);
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
+#profile-side-mobile-bottom button{
+    padding: 15px 25px;
+    border: 0;
+    outline: 0;
+    margin: 10px;
+    background-color: rgb(80, 160, 250);
+    cursor: pointer;
+}
+#profile-side-mobile-bottom button:hover{
+    background-color: rgba(0,0,0,10%);
+}
+
 #profile-side-mobile h1{
     margin-top: 10px;
     font-size: 18px;
@@ -241,7 +181,7 @@ body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.c
 #profile-side-mobile-middle {
     position: absolute;
     left: 0;
-    top: 72.5px;
+    top: 0;
     text-align: center;
     width: 100%;
 }
@@ -256,9 +196,3 @@ body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.c
 #profile-side-mobile-middle ul:hover{
     background-color: rgba(0,0,0,15%);
 }
-
-#profile-side {
-    position: fixed;
-    top: 80.5px;
-    right: 0;
-  }
