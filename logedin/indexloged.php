@@ -9,7 +9,7 @@ include("../backend/authorization.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnlineCourses-HomePage</title>
+    <title>OnlineCourses</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../js/script.js"></script>
@@ -80,8 +80,11 @@ include("../backend/authorization.php");
             <a href="../backend/logout.php"><button>Sign out</button></a>
         </div>
     </div>
-    <div class="main-info">
-        <embed id="embed" class="html-embed" type="text/html" src="haha.php" width="100%" height="100%">
-    </div>
+    <footer>
+        <li>©2023 OCourses<li>
+        <li>Terms & Conditions<li>
+        <li>Data privacy<li>
+    </footer>
+        <iframe id="embed" class="html-embed" type="text/html" src="defaultloged.php" width="100%" height="100%">
 </body>
 </html>

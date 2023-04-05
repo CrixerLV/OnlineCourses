@@ -40,6 +40,7 @@
         </div>
     </div>
     <div class="main-info">
+    <iframe id="embed" class="html-embed" type="text/html" src="../logedin/defaultloged.php" width="100%" height="100%">
     </div>
     <div class="main-footer">
         <div class="main-footer-menu">

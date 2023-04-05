@@ -18,7 +18,7 @@ function courses(){
   document.getElementById("embed").src = "coursesloged.php"
 }
 function home(){
-  document.getElementById("embed").src = "indexloged.php"
+  document.getElementById("embed").src = "defaultloged.php"
 }
 function info(){
   document.getElementById("embed").src = "informationloged.php"
@@ -30,7 +30,7 @@ function redirectlogedCourses(){
   window.location = "../logedin/coursesloged.php";
 }
 function redirectlogedHome(){
-  window.location = "../logedin/indexloged.php";
+  window.location = "../logedin/defaultloged.php";
 }
 function redirectlogedInformation(){
   window.location = "../logedin/informationloged.php";
