@@ -30,14 +30,13 @@ a:active {
     position: absolute;
     left: 5px;
     top: 5px;
-    background-color: rgba(0,0,0,10%);
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 25px;
 }
 #back:hover{
-    background-color: rgba(0,0,0,20%);
+    scale: 1.4;
 }
 
 input{

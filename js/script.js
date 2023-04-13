@@ -13,15 +13,11 @@ function redirectlogin(){
 function redirectsignup(){
   window.location = "../guest/signup.php";
 }
-
-function courses(){
-  document.getElementById("embed").src = "coursesloged.php"
+function redirectCourses(){
+  window.location = "../guest/courses.php";
 }
-function home(){
-  document.getElementById("embed").src = "defaultloged.php"
-}
-function info(){
-  document.getElementById("embed").src = "informationloged.php"
+function redirectInformation(){
+  window.location = "../guest/information.php";
 }
 
 
