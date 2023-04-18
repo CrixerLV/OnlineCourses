@@ -18,37 +18,86 @@ html, body {
     font-family: urbanist;
 }
 
-
-iframe{
-    border: 0;
-    display: block;
-    top: 10%;
-    position: absolute;
-    height: 100%;
-    width: 100%
+body{
+    background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-footer {
-    position: absolute;
-    top: 110%;
-    width: 100%;
-    background-color: rgb(243, 243, 243);
+.footer {
+    background-color: white;
     color: black;
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
-    z-index: 3;
-}
-  
-footer li {
-    display: inline-block;
-    margin: 0 10px;
-    font-size: 14px;
-    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
 }
 
-footer li:hover{
+.footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer a:hover {
     text-decoration: underline;
 }
+
+.footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.footer ul li {
+    margin: 0 10px;
+}
+
+.footer ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-links {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .social-links li {
+    margin: 0 10px;
+}
+
+.footer .social-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.footer .social-links li a:hover {
+    text-decoration: underline;
+}
+
 .nav-bar{
     display: flex;
     width: 100%;
@@ -319,4 +368,115 @@ footer li:hover{
     position: fixed;
     top: 80.5px;
     right: 0;
+}
+
+.page-name{
+    text-align: center;
+    font-family: 'Bebas Neue';
+    letter-spacing: 3px;
+    margin-top: 20px;
+    background-color: white;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.main-info-select{
+    text-align: center;
+    font-family: 'Bebas Neue';
+    letter-spacing: 3px;
+    margin-top: 20px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+select, input[type="submit"] {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+select:focus, input[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+    background-color: rgb(80, 160, 250);
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(100, 180, 255);
+}
+select option[disabled]:first-child {
+    color: gray;
+}
+select{
+    cursor: pointer;
+}
+
+.main-info-table{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+.main-info-table .tablecontainer{
+    width: 50%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 8px;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+}
+tr{
+    background-color: white;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+#datatable {
+    font-size: 14px;
+}
+#datatable button{
+    padding: 10px 15px;
+    border: 0;
+    cursor: pointer;
+}
+
+#search input{
+    border: 0;
+    outline: 0;
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font-size: 16px;
+}
+#search input[type="text"]{
+    text-align: center;
 }

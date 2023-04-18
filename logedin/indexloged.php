@@ -12,6 +12,7 @@ include("../backend/authorization.php");
     <title>OnlineCourses</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <script src="../js/script.js"></script>
     <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/R.73b3ee8749998c6a22b219fd1c6ae291?rik=8Q9ro4mSpvT1XA&riu=http%3a%2f%2fwww.habitac.cl%2fassets%2fimg%2fglobal%2flogo.png&ehk=384eecrpF76HkVInIRcazWy16UeCjGvSW9uK%2btwzFRw%3d&risl=&pid=ImgRaw&r=0">
 </head>
@@ -23,7 +24,6 @@ include("../backend/authorization.php");
         <div class="nav-bar-menu">
             <li id="home" onclick="home()">Home</li>
             <li id="courses" onclick="courses()">Courses</li>
-            <li id="info" onclick="info()">Information</li>
         </div>
         <div class="nav-bar-menu-mobile">
             <i onclick="openprofilemobile()" class="fa fa-bars"></i>
@@ -73,18 +73,45 @@ include("../backend/authorization.php");
         </div>
         <div id="profile-side-middle">
             <ul><li>Profile</li></ul>
-            <ul><li>Information</li></ul>
-            <ul><li>Become a instructor</li></ul>
+            <?php
+                $email = $_SESSION['email'];
+                $sql = "SELECT type FROM users WHERE Email='$email'";
+                $result = mysqli_query($con, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        if($row["type"] == "Teacher") {
+                            // Display the button
+                            echo "<ul><li>Create a course</li></ul>";
+                        }
+                        if($row["type"] == "User") {
+                            // Display the button
+                            echo "<ul><li>Become a instructor</li></ul>";
+                        }
+                    }
+                } else {
+                    echo "0 results";
+                }
+            ?>
         </div>
         <div id="profile-side-bottom">
             <a href="../backend/logout.php"><button>Sign out</button></a>
         </div>
     </div>
-    <footer>
-        <li>©2023 OCourses<li>
-        <li>Terms & Conditions<li>
-        <li>Data privacy<li>
-    </footer>
-        <iframe id="embed" class="html-embed" type="text/html" src="defaultloged.php" width="100%" height="100%">
+	<div class="footer">
+		<p>&copy; 2023 Online Courses Page. All Rights Reserved.</p>
+		<ul>
+			<li><a href="#">Privacy Policy</a></li>
+			<li><a href="#">Terms of Use</a></li>
+			<li><a href="#">Contact Us</a></li>
+			<li><a href="#">FAQ</a></li>
+		</ul>
+		<p>Follow us on:</p>
+		<ul>
+			<li><a href="#">Facebook</a></li>
+			<li><a href="#">Twitter</a></li>
+			<li><a href="#">Instagram</a></li>
+		</ul>
+	</div>
 </body>
 </html>

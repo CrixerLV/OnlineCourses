@@ -16,21 +16,17 @@ function redirectsignup(){
 function redirectCourses(){
   window.location = "../guest/courses.php";
 }
-function redirectInformation(){
-  window.location = "../guest/information.php";
-}
 
 
 
-function redirectlogedCourses(){
+
+function courses(){
   window.location = "../logedin/coursesloged.php";
 }
-function redirectlogedHome(){
-  window.location = "../logedin/defaultloged.php";
+function home(){
+  window.location = "../logedin/indexloged.php";
 }
-function redirectlogedInformation(){
-  window.location = "../logedin/informationloged.php";
-}
+
 
 
 function openprofile(){

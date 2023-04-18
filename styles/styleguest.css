@@ -16,275 +16,67 @@ body, html {height: 100%;width: 100%;
     background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.nav-bar{
-    display: flex;
-    width: 100%;
-    height: 80px;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    background-color: white;
     font-family: 'Bebas Neue', cursive;
-    font-size: 20px;
-    z-index: 1;
 }
 
-.nav-bar-logo img{
-    width: 80px;
-    margin: 20px;
-}
 
-.nav-bar-menu{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    left: 0;
+.landing-page{
     position: absolute;
-}
-.nav-bar-menu li{
-    list-style-type: none;
-    margin-left: 15px;
-    cursor: pointer;
-}
-
-.nav-bar-menu li {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .nav-bar-menu li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background-color: #000;
-    transition: width 0.5s ease;
-  }
-  
-  .nav-bar-menu li:hover::before {
-    width: 100%;
-  }
-
-.nav-bar-menu-mobile{
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.nav-bar-menu-mobile i{
-    position: absolute;
-    right: 30px;
-    cursor: pointer;
-    top: 30px;
-}
-
-.nav-bar-sl button{
-    padding: 12px 25px;
-    border: 0;
-    cursor: pointer;
-    background-color: rgb(80, 160, 250);
-}
-.nav-bar-sl button:hover{
-    background-color: rgb(100, 180, 255);
-}
-
-.nav-bar-sl{
-    position: absolute;
-    right: 20px;
-}
-
-@media only screen and (max-width: 1050px) {
-    .nav-search-bar{
-        display: none;
-    }
-
-}
-
-@media only screen and (max-width: 800px) {
-    .nav-bar-menu{
-        display: none;
-    }
-    .nav-bar-sl{
-        display: none;
-    }
-}
-@media only screen and (max-width: 800px) {
-    .nav-bar-menu-mobile{
-        display: flex;
-    }
-}
-
-/*Main Center Info*/
-.main-info{
+    background-color: rgba(0,0,0,50%);
+    height: 100%;
     width: 100%;
 }
-
-.main-info-who{
+.landing-page-info{
     position: absolute;
-    display: flex;
-    justify-content: center;
-    transform: translate(-50%,-50%);
     left: 50%;
     top: 50%;
-    z-index: 1;
-    background-color: rgb(255,255,255);
-    padding-bottom: 40px;
-}
-
-.main-info-who-card h1{
-    font-size: 1.4em;
+    transform: translate(-50%,-50%);
     text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    background-color: rgb(80, 160, 250);
+    width: 100%;
+    color: white;
+}
+.landing-page-info hr{
+    width: 55%;
+    margin: auto;
+}
+.landing-page-info h1{
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.landing-page-info p{
+    width: 50%;
+    margin: auto;
+    letter-spacing: 1.5px;
+    font-size: 1.1rem;
+    font-weight: 100;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+.btn-container{
+    margin-top: 50px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    font-family: urbanist   ;
+    padding: 15px;
+}
+.btn-container h1{
+    font-size: 25px;
 }
 
-.main-info-who-card{
-    width: 100%;
+.btn-container button{
+    border: 0;
+    outline: 0;
+    width: 75%;
+    height: 35px;
+    cursor: pointer;
+    background-color: rgb(80, 160, 250);
+    color: white;
+    transition: all 0.3s ease-in-out;
     margin: 20px;
-    background-color: rgba(0,0,0,10%);
-    text-align: center;
+    border-radius: 25px;
 }
-.main-info-who-card img{
-    width: 90%;
-    background-color: rgba(180,180,180,255);
-    padding: 3px;
-    margin: 10px;
-}
-.main-info-who-card p{
-    letter-spacing: 1px;
-    padding: 10px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-.main-info-who button{
-    position: absolute;
-    bottom: 10px;
-    padding: 10px;
-    margin-top: 10px;
-    outline: 0;
-    border: 0;
-    background-color: rgb(80, 160, 250);
-    cursor: pointer;
-    width: 90%;
-}
-.main-info-who button:hover{
-    background-color: rgb(100, 180, 255);
-}
-
-@media only screen and (max-width: 1700px){
-    .main-info-who{
-        position: static;
-        display: block;
-        left: 0;
-        transform: translate(0,0);
-        z-index: 1;
-        background-color: rgb(255,255,255);
-        padding-bottom: 40px;
-        width: 100%;
-    }
-    .main-info-who-card h1{
-        font-size: 1.4em;
-        text-align: center;
-        font-family: 'Bebas Neue', cursive;
-        background-color: rgb(80, 160, 250);
-    }
-    
-    .main-info-who-card{
-        width: 100%;
-        margin: 0;
-        background-color: rgba(0,0,0,10%);
-        text-align: center;
-    }
-    .main-info-who button{
-        left: 50%;
-        transform: translate(-50%,+10px);
-    }
-}
-
-
-.nav-bar-sl img{
-    width: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-/*Mobile*/
-
-#profile-side-mobile{
-    display: none;
-    width: 200px;
-    position: absolute;
-    background-color: white;
-    right: 0;
-    list-style-type: none;
-    height: 300px;
-    padding: 30px;
-    top: 81px;
-}
-#profile-side-mobile-bottom{
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-#profile-side-mobile-bottom button{
-    padding: 15px 25px;
-    border: 0;
-    outline: 0;
-    margin: 10px;
-    background-color: rgb(80, 160, 250);
-    cursor: pointer;
-}
-#profile-side-mobile-bottom button:hover{
-    background-color: rgba(0,0,0,10%);
-}
-
-#profile-side-mobile h1{
-    margin-top: 10px;
-    font-size: 18px;
-    text-align: center;
-}
-#profile-side-mobile h2{
-    text-align: center;
-    font-size: 14px;
-    margin-top: 5px;
-}
-#profile-side-mobile a{
-    position: absolute;
-    transform: translate(-50%,0);
-    left: 50%;
-    width: 100%;
-}
-#profile-side-mobile a button {
-    cursor: pointer;
-    width: 100%;
-    padding: 20px 0 20px;
-    outline: 0;
-    border: 0;
-    font-size: 17px;
-}
-#profile-side-mobile a,button:hover{
-    background-color: rgba(0,0,0,10%);
-}
-#profile-side-mobile-middle {
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-align: center;
-    width: 100%;
-}
-#profile-side-mobile-middle ul{
-    padding: 20px 0px;
-    list-style-type: none;
-    cursor: pointer;
-}
-#profile-side-mobile-middle ul:nth-child(even){
-    background-color: rgba(0,0,0,5%);
-}
-#profile-side-mobile-middle ul:hover{
-    background-color: rgba(0,0,0,15%);
+.btn-container button:hover{
+    transform: scale(1.1);
 }
