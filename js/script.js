@@ -17,6 +17,20 @@ function redirectCourses(){
   window.location = "../guest/courses.php";
 }
 
+function toggnewcourse() {
+  var x = document.getElementById("newcourse");
+  var x2 = document.getElementById("hidethis");
+  var x3 = document.getElementById("filter");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    x2.style.display = "flex";
+    x3.style.display = "flex";
+  } else {
+    x.style.display = "block";
+    x2.style.display = "none";
+    x3.style.display = "none";
+  }
+}
 
 
 

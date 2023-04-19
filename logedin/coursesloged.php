@@ -98,10 +98,6 @@ include("../backend/authorization.php");
 
                 if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
-                        if($row["type"] == "Teacher") {
-                            // Display the button
-                            echo "<ul><li>Create a course</li></ul>";
-                        }
                         if($row["type"] == "User") {
                             // Display the button
                             echo "<ul><li>Become a instructor</li></ul>";
@@ -121,39 +117,122 @@ include("../backend/authorization.php");
     </div>
     <div class="main-info">
         <div class="main-info-select">
-            <form>
-             <select name="languages" id="lang">
-                    <option value="" disabled selected hidden>Languages</option>
-                    <option value="English">English</option>
-                    <option value="Russian">Russian</option>
-                    <option value="Latvian">Latvian</option>
-            </select>
-            <select name="type" id="type">
-                <option value="" disabled selected hidden>Type</option>
-                <option value="IT">IT</option>
-                <option value="Architecture">Architecture</option>
-                <option value="Mechanical">Mechanical</option>
-                <option value="Law">Law</option>
-                <option value="Economics ">Economics </option>
-                <option value="Medicine">Medicine</option>
-                <option value="Business ">Business </option>
-            </select>
-            <select name="date" id="date">
-                <option value="" disabled selected hidden>Sort By</option>
-                <option value="Newest">Newest</option>
-                <option value="Oldest">Oldest</option>
-            </select>
+            <form id='filter'>
+                <select name="languages" id="lang">
+                        <option value="" disabled selected hidden>Languages</option>
+                        <option value="English">English</option>
+                        <option value="Russian">Russian</option>
+                        <option value="Latvian">Latvian</option>
+                </select>
+                <select name="type" id="type">
+                    <option value="" disabled selected hidden>Type</option>
+                    <option value="IT">IT</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Law">Law</option>
+                    <option value="Economics ">Economics </option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Business ">Business </option>
+                </select>
+                <select name="date" id="date">
+                    <option value="" disabled selected hidden>Sort By</option>
+                    <option value="Newest">Newest</option>
+                    <option value="Oldest">Oldest</option>
+                </select>
                 <input type="submit" value="Filter">
             </form>
             <form id="search">
                 <input type="text" placeholder="Search">
                 <input type="submit" value="Search">
             </form>
+                <?php
+                    $email = $_SESSION['email'];
+                    $sql = "SELECT type FROM users WHERE Email='$email'";
+                    $result = mysqli_query($con, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
+                            if($row["type"] == "User") {
+                                // Display the button
+                                echo "<button onclick='toggnewcourse()' id='btn-edit'>Create a Course</button>";
+                            }
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                ?>
+            <form id="newcourse">
+                <h1>New course</h1>
+                <label>Name of the course</label>
+                <input name='name' type='Text' placeholder='Example:Journalist' required>
+                <label>Type of the course</label>
+                <select name='type' required>
+                    <option value="" disabled selected hidden>Type</option>
+                    <option value="IT">IT</option>
+                    <option value="Architecture">Architecture</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Law">Law</option>
+                    <option value="Economics ">Economics</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Business ">Business</option>
+                </select>
+                <label>Language of the course</label>
+                <input name='lang' type='Text' placeholder='Example:Latvian' required>
+                <label>Starting date of the course</label>
+                <input name='start' type='Date' required>
+                <label>Price of the course</label>
+                <input name='price' type='Number' step="0.01" placeholder="Example:16.99" required>
+                <input name='submit' type='Submit' value='Create'>
+                <button onclick="toggnewcourse()">Close</button>
+            </form>
+            <?php
+            if (isset($_REQUEST['name']) && isset($_REQUEST['type']) && isset($_REQUEST['lang']) && isset($_REQUEST['start']) && isset($_REQUEST['price'])){
+                $name = stripslashes($_REQUEST['name']);
+                $name = mysqli_real_escape_string($con,$name);
+
+                $type = stripslashes($_REQUEST['type']);
+                $type = mysqli_real_escape_string($con,$type);
+
+                $lang = stripslashes($_REQUEST['lang']);
+                $lang = mysqli_real_escape_string($con,$lang);
+
+                $created = date("Y/m/d");
+
+                $start = stripslashes($_REQUEST['start']);
+                $start = mysqli_real_escape_string($con,$start);
+
+                $email = $_SESSION['email'];
+                $sql = "SELECT User_ID FROM users WHERE Email='$email'";
+                $result = mysqli_query($con, $sql);
+                $row2 = mysqli_fetch_array($result);
+
+                $teacher = $row2['User_ID'];
+
+                $price = stripslashes($_REQUEST['price']);
+                $price = mysqli_real_escape_string($con,$price);
+
+                // Lietotājvārda aizņemtības? pārbaude
+                $check_query = "SELECT * FROM courses WHERE name = '$name'";
+                $check_result = mysqli_query($con, $check_query);
+                if (mysqli_num_rows($check_result) > 0) {
+                    echo("<h1 style='color:red;' id='error'>Name is already taken!</h1>");
+                } else {
+                    $query = "INSERT INTO courses (Name,Type,Language,Created,Start,Teacher,Price)
+                    VALUES ('$name','$type','$lang','$created','$start','$teacher','$price')";
+                    $result2 = mysqli_query($con,$query);
+
+                    if($result2){
+                        echo("<h1 id='error'>Added Sucesfully!</h1>");
+                    }
+                }
+            }
+?>
         </div>
-        <div class="main-info-table">
+        <div id='hidethis' class="main-info-table">
             <div class="tablecontainer">
                 <table>
                     <thead>
+                        <th></th>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Language</th>
@@ -169,12 +248,43 @@ include("../backend/authorization.php");
                         while($row = mysqli_fetch_array($result)) {
                         ?>
                     <tr class="table" id='datatable'>
+                        <td name='display-icon'>
+                        <?php 
+                            if($row['Type'] == "IT"){
+                                echo "<img id='icon' src='https://icon-library.com/images/it-icon-png/it-icon-png-7.jpg'>";
+                            }elseif ($row['Type'] == "Architecture"){
+                                echo "<img id='icon' src='https://cdn3.iconfinder.com/data/icons/engineering-geodesy-blue-line/64/406_engineering-blueprint-design-architecture-512.png'>";
+                            }elseif ($row['Type'] == "Mechanical"){
+                                echo "<img id='icon' src='https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/235-512.png'>";
+                            }elseif ($row['Type'] == "Law"){
+                                echo "<img id='icon' src='https://cdn-icons-png.flaticon.com/512/1125/1125704.png'>";
+                            }elseif ($row['Type'] == "Economics"){
+                                echo "<img id='icon' src='https://cdn-icons-png.flaticon.com/512/4635/4635145.png'>";
+                            }elseif ($row['Type'] == "Medicine"){
+                                echo "<img id='icon' src='https://www.freeiconspng.com/thumbs/medical-icon-png/health-insurance-icon-png-3.png'>";
+                            }elseif ($row['Type'] == "Business"){
+                                echo "<img id='icon' src='https://cdn-icons-png.flaticon.com/512/6786/6786706.png'>";
+                            }elseif ($row['Type'] == "Other"){
+                                echo "<img id='icon' src='https://cdn1.iconfinder.com/data/icons/vibrancie-action/30/action_028-detail-more-info-others-512.png'>";
+                            }
+                        ?>
+                        </td>
                         <td name='display-name'><?php echo $row['Name']; ?></td>
                         <td name='display-type'><?php echo $row['Type']; ?></td>
                         <td name='display-lang'><?php echo $row['Language']; ?></td>
                         <td name='display-created'><?php echo $row['Created']; ?></td>
                         <td name='display-start'><?php echo $row['Start']; ?></td>
-                        <td name='display-teacher'><?php echo $row['Teacher']; ?></td>
+                        <td name='display-teacher'>
+                        <?php
+                            $id = $row['Teacher'];
+                            $sql = "SELECT * FROM users WHERE User_ID='$id'";
+                            $result2 = mysqli_query($con, $sql);
+                            $row2 = mysqli_fetch_array($result2);
+                            if($id = $row2['User_ID']){
+                                echo $row2['Name'], " " , $row2['Lastname'];
+                            }
+                        ?>
+                        </td>
                         <td name='display-price'><?php echo $row['Price']; ?> $</td>
                         <td name='display-btn'><button>Purchase</button></td>
                     </tr>
