@@ -64,27 +64,34 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password']) && isset($_REQUEST
     <title>OnlineCourses-Sign Up</title>
 </head>
 <body>
-    <div class="input-form">
-        <a href="index.php" id="back">←</a>
-        <img src="https://th.bing.com/th/id/R.73b3ee8749998c6a22b219fd1c6ae291?rik=8Q9ro4mSpvT1XA&riu=http%3a%2f%2fwww.habitac.cl%2fassets%2fimg%2fglobal%2flogo.png&ehk=384eecrpF76HkVInIRcazWy16UeCjGvSW9uK%2btwzFRw%3d&risl=&pid=ImgRaw&r=0">
-        <?php
-        if ($check == true){
-            echo "<h1>Profile with this email already exists!</h1>";
-        }elseif($checkpw == true){
-            echo "<h1>Passwords doesn't match!</h1>";
-        }elseif($create == true){
-            echo "<h1>Profile created sucesfully!</h1>";
-        }
-        ?>
+    <div class="form-container">
         <form>
-            <input name="email" type="email" placeholder="Email" required><br>
-            <input name="password" type="password" placeholder="Password" required><br>
-            <input name="passwordx2" type="password" placeholder="Password X2" required><br>
-            <input name="name" type="text" placeholder="Name" required><br>
-            <input name="lastname" type="text" placeholder="Lastname" required><br>
-            <input type="submit" value="Sign Up">
-            <label>Or</label>
-            <a href="login.php">Already Signed up?</a>
+            <div class="info-container">
+            <a href="index.php" id="back">Back</a>
+            <img src="https://th.bing.com/th/id/R.73b3ee8749998c6a22b219fd1c6ae291?rik=8Q9ro4mSpvT1XA&riu=http%3a%2f%2fwww.habitac.cl%2fassets%2fimg%2fglobal%2flogo.png&ehk=384eecrpF76HkVInIRcazWy16UeCjGvSW9uK%2btwzFRw%3d&risl=&pid=ImgRaw&r=0">
+                <p>Register by inputing the required data!</p>
+            </div>
+            <div class='input-container'>           
+                <input name="email" type="email" placeholder="Email" required><br>
+                <input name="password" type="password" placeholder="Password" required><br>
+                <input name="passwordx2" type="password" placeholder="Password X2" required><br>
+                <input name="name" type="text" placeholder="Name" required><br>
+                <input name="lastname" type="text" placeholder="Lastname" required><br>
+                <?php
+                    if ($check == true){
+                        echo "<h1>Profile with this email already exists!</h1>";
+                    }elseif($checkpw == true){
+                        echo "<h1>Passwords doesn't match!</h1>";
+                    }elseif($create == true){
+                        echo "<h1>Profile created sucesfully!</h1>";
+                    }
+                ?>
+            </div>
+            <input type="submit" value="Signup">
+            <div class="notmember">
+                <label>Already registered?</label>
+                <a href="login.php">Login here!</a>
+            </div>
         </form>
     </div>
 </body>

@@ -81,11 +81,9 @@ include("../backend/authorization.php");
                 if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
                         if($row["type"] == "Teacher") {
-                            // Display the button
                             echo "<ul><li>Create a course</li></ul>";
                         }
                         if($row["type"] == "User") {
-                            // Display the button
                             echo "<ul><li>Become a instructor</li></ul>";
                         }
                     }
@@ -96,6 +94,23 @@ include("../backend/authorization.php");
         </div>
         <div id="profile-side-bottom">
             <a href="../backend/logout.php"><button>Sign out</button></a>
+        </div>
+    </div>
+    <div class="page-name">
+       <h1>Home</h1>
+    </div>
+    <div class="main-info">
+        <div class="card-container">
+            <div class="card">
+                <h1>We are searcing for teachers!</h1>
+                <p>If you're passionate about education and are looking for an opportunity to share your expertise with others, then joining our course page as a teacher could be the perfect fit for you.</p>
+                <button>Apply now!</button>
+            </div>
+            <div class="card">
+                <h1>We are searching for administration!</h1>
+                <p>If you're looking for an opportunity to work in a dynamic and exciting environment, then joining our team as an administrator could be the perfect fit for you.</p>
+                <button>Join us now!</button>
+            </div>
         </div>
     </div>
 	<div class="footer">

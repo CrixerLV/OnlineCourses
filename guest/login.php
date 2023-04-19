@@ -49,20 +49,34 @@ if (isset($_REQUEST['email'])) {
     <title>OnlineCourses-Login</title>
 </head>
 <body>
-    <div class="input-form">
-        <a href="index.php" id="back">←</a>
-        <img src="https://th.bing.com/th/id/R.73b3ee8749998c6a22b219fd1c6ae291?rik=8Q9ro4mSpvT1XA&riu=http%3a%2f%2fwww.habitac.cl%2fassets%2fimg%2fglobal%2flogo.png&ehk=384eecrpF76HkVInIRcazWy16UeCjGvSW9uK%2btwzFRw%3d&risl=&pid=ImgRaw&r=0">
-        <?php
-        if ($check == true){
-            echo "<h1 id='error'>Account with this email doesn't exist!</h1>";
-        }
-        ?>
+    <div class="form-container">
         <form>
-            <input type="email" id="email" name="email" placeholder="Email" required><br>
-            <input type="password" name="password" placeholder="Password" required><br>
+            <div class="info-container">
+            <a href="index.php" id="back">Back</a>
+            <img src="https://th.bing.com/th/id/R.73b3ee8749998c6a22b219fd1c6ae291?rik=8Q9ro4mSpvT1XA&riu=http%3a%2f%2fwww.habitac.cl%2fassets%2fimg%2fglobal%2flogo.png&ehk=384eecrpF76HkVInIRcazWy16UeCjGvSW9uK%2btwzFRw%3d&risl=&pid=ImgRaw&r=0">
+                <p>Sign in with your email and password!</p>
+            </div>
+            <div class='input-container'>           
+                <label id='labels'>Your E-Mail</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <label id='labels'>Your Password</label>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox">
+                <label>Rember Me!</label>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            <?php
+            if ($check == true){
+                echo "<h1 id='error'>Account with this email doesn't exist!</h1>";
+            }
+            ?>
             <input type="submit" value="Login">
-            <label>Or</label>
-            <a href="signup.php">Not Signed up yet?</a>
+            <div class="notmember">
+                <label>Not a member yet?</label>
+                <a href="signup.php">Register here!</a>
+            </div>
         </form>
     </div>
 </body>

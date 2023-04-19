@@ -61,6 +61,17 @@ function openprofilemobile(){
   }
 }
 
+var emailInput = document.getElementById("email");
+document.querySelector("form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var email = emailInput.value;
+  localStorage.setItem("email", email);
+});
+
+var savedEmail = localStorage.getItem("email");
+if (savedEmail !== null) {
+  emailInput.value = savedEmail;
+}
 
 
 

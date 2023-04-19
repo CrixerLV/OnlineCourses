@@ -58,11 +58,9 @@ include("../backend/authorization.php");
                 if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
                         if($row["type"] == "Teacher") {
-                            // Display the button
                             echo "<ul><li>Create a course</li></ul>";
                         }
                         if($row["type"] == "User") {
-                            // Display the button
                             echo "<ul><li>Become a instructor</li></ul>";
                         }
                     }
@@ -99,7 +97,6 @@ include("../backend/authorization.php");
                 if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
                         if($row["type"] == "User") {
-                            // Display the button
                             echo "<ul><li>Become a instructor</li></ul>";
                         }
                     }
@@ -152,8 +149,7 @@ include("../backend/authorization.php");
 
                     if (mysqli_num_rows($result) > 0) {
                         while($row = mysqli_fetch_assoc($result)) {
-                            if($row["type"] == "User") {
-                                // Display the button
+                            if($row["type"] == "Teacher") {
                                 echo "<button onclick='toggnewcourse()' id='btn-edit'>Create a Course</button>";
                             }
                         }
@@ -211,7 +207,6 @@ include("../backend/authorization.php");
                 $price = stripslashes($_REQUEST['price']);
                 $price = mysqli_real_escape_string($con,$price);
 
-                // Lietotājvārda aizņemtības? pārbaude
                 $check_query = "SELECT * FROM courses WHERE name = '$name'";
                 $check_result = mysqli_query($con, $check_query);
                 if (mysqli_num_rows($check_result) > 0) {
