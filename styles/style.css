@@ -604,6 +604,11 @@ tr:hover {
     }
 }
 
+#edit-container{
+    width: 100%;
+    display: none;
+}
+
 
 
 /*HOME PAGE*/
@@ -661,4 +666,94 @@ tr:hover {
     border-bottom: 2px dotted black;
     font-family: 'Bebas Neue';
     color: rgb(80,160,250);
+}
+
+
+/* PROFILE */
+.profile-container{
+    margin-top:20px;
+    width: 100%;
+}
+.profile-container form{
+    margin: 0;
+}
+
+.profile-info{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.profile-card{
+    width: 50%;
+    background-color: white;
+    margin-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+.profile-card img{
+    margin: 10px;
+    width: 50%;
+    border-radius: 100%;
+}
+.profile-card h1{
+    font-weight: 1000;
+    font-size: 25px;
+}
+.profile-card h2{
+    font-size: 20px;
+    color: #8b8b8b;
+}
+.profile-card #deletebtn{
+    background-color: rgb(250, 80, 80);
+    border: 0;
+    outline: 0;
+    color: white;
+    padding: 15px 25px;
+    cursor: pointer;
+}
+.profile-card #becomebtn{
+    background-color: rgb(80, 160, 250);
+    border: 0;
+    outline: 0;
+    color: white;
+    padding: 15px 25px;
+    cursor: pointer;
+}
+.profile-card button{
+    transition: all 0.2s ease-in-out;
+    margin: 10px;
+    width: 70%;
+}
+.profile-card button:hover{
+    transform: scale(1.1);
+}
+
+.profile-card ul{
+    margin: auto;
+    width: 80%;
+    padding: 05px 0px;
+    border-bottom: 2px solid rgba(124, 124, 124,10%);
+    display: flex;
+    align-items: center;
+}
+.profile-card label{
+    font-weight: 1000;
+    align-self: center;
+    width: 35%;
+}
+.profile-card li{
+    align-self: left ;
+    list-style-type: none;
+    width: 50%;
+    color: #8c8c8c;
+}
+.profile-card #editbtn{
+    width: 15%;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    padding: 10px 0px;
+    background-color: rgb(80, 160, 250);
+    color: white;
 }

@@ -17,6 +17,7 @@ function redirectCourses(){
   window.location = "../guest/courses.php";
 }
 
+
 function toggnewcourse() {
   var x = document.getElementById("newcourse");
   var x2 = document.getElementById("hidethis");
@@ -39,6 +40,9 @@ function courses(){
 }
 function home(){
   window.location = "../logedin/indexloged.php";
+}
+function profile(){
+  window.location = "../logedin/profile.php";
 }
 
 
@@ -73,5 +77,26 @@ if (savedEmail !== null) {
   emailInput.value = savedEmail;
 }
 
+function editdata(){
+  var x = document.getElementById("edit-container");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 
+
+
+$(document).on('click', '.edit-btn', function() {
+  var x = document.getElementById("edit-container");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var row = $(this).closest('tr');
+  row.find('td[name="display-name"] input').prop('disabled', false);
+  $(this).text('Save');
+});
 

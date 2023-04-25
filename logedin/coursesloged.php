@@ -88,7 +88,7 @@ include("../backend/authorization.php");
             <img>
         </div>
         <div id="profile-side-middle">
-            <ul><li>Profile</li></ul>
+            <ul><li onclick="profile()">Profile</li></ul>
             <?php
                 $email = $_SESSION['email'];
                 $sql = "SELECT type FROM users WHERE Email='$email'";
@@ -127,7 +127,7 @@ include("../backend/authorization.php");
                     <option value="Architecture">Architecture</option>
                     <option value="Mechanical">Mechanical</option>
                     <option value="Law">Law</option>
-                    <option value="Economics ">Economics </option>
+                    <option value="Economics ">Economics</option>
                     <option value="Medicine">Medicine</option>
                     <option value="Business ">Business </option>
                 </select>
@@ -246,24 +246,25 @@ include("../backend/authorization.php");
                         <td name='display-icon'>
                         <?php 
                             if($row['Type'] == "IT"){
-                                echo "<img id='icon' src='https://icon-library.com/images/it-icon-png/it-icon-png-7.jpg'>";
+                                echo "<img id='icon' src='../icons/it.png'>";
                             }elseif ($row['Type'] == "Architecture"){
-                                echo "<img id='icon' src='https://cdn3.iconfinder.com/data/icons/engineering-geodesy-blue-line/64/406_engineering-blueprint-design-architecture-512.png'>";
+                                echo "<img id='icon' src='../icons/architect.png'>";
                             }elseif ($row['Type'] == "Mechanical"){
-                                echo "<img id='icon' src='https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/235-512.png'>";
+                                echo "<img id='icon' src='../icons/mech.png'>";
                             }elseif ($row['Type'] == "Law"){
-                                echo "<img id='icon' src='https://cdn-icons-png.flaticon.com/512/1125/1125704.png'>";
+                                echo "<img id='icon' src='../icons/law.png'>";
                             }elseif ($row['Type'] == "Economics"){
-                                echo "<img id='icon' src='https://cdn-icons-png.flaticon.com/512/4635/4635145.png'>";
+                                echo "<img id='icon' src='../icons/eco.png'>";
                             }elseif ($row['Type'] == "Medicine"){
-                                echo "<img id='icon' src='https://www.freeiconspng.com/thumbs/medical-icon-png/health-insurance-icon-png-3.png'>";
+                                echo "<img id='icon' src='../icons/med.png'>";
                             }elseif ($row['Type'] == "Business"){
-                                echo "<img id='icon' src='https://cdn-icons-png.flaticon.com/512/6786/6786706.png'>";
+                                echo "<img id='icon' src='../icons/bussines.png'>";
                             }elseif ($row['Type'] == "Other"){
-                                echo "<img id='icon' src='https://cdn1.iconfinder.com/data/icons/vibrancie-action/30/action_028-detail-more-info-others-512.png'>";
+                                echo "<img id='icon' src='../icons/dots.png'>";
                             }
                         ?>
                         </td>
+                        <td style='display:none;' name='display-id'><input type="hidden" name="id" value="<?php echo $row['Course_ID']; ?>"><?php echo $row['Course_ID']; ?></td>
                         <td name='display-name'><?php echo $row['Name']; ?></td>
                         <td name='display-type'><?php echo $row['Type']; ?></td>
                         <td name='display-lang'><?php echo $row['Language']; ?></td>
@@ -281,13 +282,25 @@ include("../backend/authorization.php");
                         ?>
                         </td>
                         <td name='display-price'><?php echo $row['Price']; ?> $</td>
-                        <td name='display-btn'><button>Purchase</button></td>
+                        <?php
+                            if($_SESSION['name'] === $row2['Name'] && $_SESSION['lastname'] === $row2['Lastname']){
+                                echo "<td name='display-btn'><button>Edit</button></td>";
+                            }else{
+                                echo "<td name='display-btn'><button>Purchase</button></td>";
+                            }
+                        ?>
                     </tr>
                     <?php
                         }
                         ?>
                 </table>
             </div>
+        </div>
+    </div>
+    <div class="edit-container">
+        <div class="edit-form">
+            <form>       
+            </form>
         </div>
     </div>
 	<div class="footer">
