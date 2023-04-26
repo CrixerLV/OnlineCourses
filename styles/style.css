@@ -757,3 +757,7 @@ tr:hover {
     background-color: rgb(80, 160, 250);
     color: white;
 }
+.profile-card td #deletebtns{
+    background-color: rgb(250, 80, 80);
+    color: white;
+}

@@ -6,8 +6,8 @@
     font-family: 'Urbanist', sans-serif;
     font-weight: 400;
 }
-body, html {height: 100%;width: 100%;    background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
-    background-size: cover; }
+body,html {height: 100%;width: 100%;    background-image: url(https://th.bing.com/th/id/R.3bcb867f3b01ebbc7f561d77ef251161?rik=Ox9Ku6nazQudoQ&pid=ImgRaw&r=0);
+    background-size: cover;}
 
 a:link {
     text-decoration: none;
@@ -30,7 +30,6 @@ a:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
 }
 
 form {
@@ -43,6 +42,7 @@ form {
     padding: 30px;
     width: 80%;
     max-width: 400px;
+    margin-top: 10%;
 }
 
 h1 {

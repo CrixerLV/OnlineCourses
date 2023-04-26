@@ -47,11 +47,9 @@ include("../backend/authorization.php");
             <img>
         </div>
         <div id="profile-side-middle">
-            <ul><li>Home</li></ul>
-            <ul><li>Courses</li></ul>
-            <ul><li>Information</li></ul>
-            <ul><li>Profile</li></ul>
-            <ul><li>Become a instructor</li></ul>
+            <ul><li onclick='home()'>Home</li></ul>
+            <ul><li onclick='courses()'>Courses</li></ul>
+            <ul><li onclick='profile()'>Profile</li></ul>
         </div>
         <div id="profile-side-bottom">
             <a href="../backend/logout.php"><button>Sign out</button></a>
@@ -72,25 +70,7 @@ include("../backend/authorization.php");
             <img>
         </div>
         <div id="profile-side-middle">
-            <ul><li>Profile</li></ul>
-            <?php
-                $email = $_SESSION['email'];
-                $sql = "SELECT type FROM users WHERE Email='$email'";
-                $result = mysqli_query($con, $sql);
-
-                if (mysqli_num_rows($result) > 0) {
-                    while($row = mysqli_fetch_assoc($result)) {
-                        if($row["type"] == "Teacher") {
-                            echo "<ul><li>Create a course</li></ul>";
-                        }
-                        if($row["type"] == "User") {
-                            echo "<ul><li>Become a instructor</li></ul>";
-                        }
-                    }
-                } else {
-                    echo "0 results";
-                }
-            ?>
+            <ul><li onclick='profile()'>Profile</li></ul>
         </div>
         <div id="profile-side-bottom">
             <a href="../backend/logout.php"><button>Sign out</button></a>

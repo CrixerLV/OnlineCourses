@@ -47,7 +47,6 @@ a:active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
 }
 
 form {
@@ -60,6 +59,7 @@ form {
     padding: 30px;
     width: 80%;
     max-width: 400px;
+    margin-top: 5%;
 }
 
 h1 {

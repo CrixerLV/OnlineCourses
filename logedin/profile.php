@@ -47,11 +47,9 @@ include("../backend/authorization.php");
             <img>
         </div>
         <div id="profile-side-middle">
-            <ul><li>Home</li></ul>
-            <ul><li>Courses</li></ul>
-            <ul><li>Information</li></ul>
+            <ul><li onclick='home()'>Home</li></ul>
+            <ul><li onclick='courses()'>Courses</li></ul>
             <ul><li onclick="profile()">Profile</li></ul>
-            <ul><li>Become a instructor</li></ul>
         </div>
         <div id="profile-side-bottom">
             <a href="../backend/logout.php"><button>Sign out</button></a>
@@ -72,7 +70,9 @@ include("../backend/authorization.php");
             <img>
         </div>
         <div id="profile-side-middle">
-            <ul><li onclick="profile()">Profile</li></ul>
+            <ul><li onclick='home()'>Home</li></ul>
+            <ul><li onclick='courses()'>Courses</li></ul>
+            <ul><li onclick='profile()'>Profile</li></ul>
             <?php
                 $email = $_SESSION['email'];
                 $sql = "SELECT type FROM users WHERE Email='$email'";
@@ -161,7 +161,94 @@ include("../backend/authorization.php");
             </div>
         </div>
         <div class="profile-info">
-            s
+            <div class="profile-card" style='width:80%; margin-top: 20px; text-align: center'>
+                <?php
+                if($row['Type'] == "Teacher"){
+                    echo "<h1>Your created courses</h1>" ;
+                }else{
+                    echo "<h1>The course you have purchased</h1>";
+                }
+                ?>
+                                <table>
+                    <thead>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Language</th>
+                        <th>Created</th>
+                        <th>Starts</th>
+                        <th>Teacher</th>
+                        <th>Price</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <?php
+                        $query = "SELECT * FROM Courses";
+                        $usersql = "SELECT User_ID FROM users WHERE Email='$email'";
+                        $resultuserid = $con->query($usersql);
+                        if ($resultuserid->num_rows > 0) {
+                            $rowuserid = $result->fetch_assoc();
+                            $userid = $row["User_ID"];
+                        }
+                        $result = mysqli_query($con,$query);
+                        while($row = mysqli_fetch_array($result)){
+                            if($userid == $row['Teacher']){
+                        ?>
+                    <tr class="table" id='datatable'>
+                        <td name='display-icon'>
+                        <?php 
+                            if($row['Type'] == "IT"){
+                                echo "<img id='icon' src='../icons/it.png'>";
+                            }elseif ($row['Type'] == "Architecture"){
+                                echo "<img id='icon' src='../icons/architect.png'>";
+                            }elseif ($row['Type'] == "Mechanical"){
+                                echo "<img id='icon' src='../icons/mech.png'>";
+                            }elseif ($row['Type'] == "Law"){
+                                echo "<img id='icon' src='../icons/law.png'>";
+                            }elseif ($row['Type'] == "Economics"){
+                                echo "<img id='icon' src='../icons/eco.png'>";
+                            }elseif ($row['Type'] == "Medicine"){
+                                echo "<img id='icon' src='../icons/med.png'>";
+                            }elseif ($row['Type'] == "Business"){
+                                echo "<img id='icon' src='../icons/business.png'>";
+                            }elseif ($row['Type'] == "Other"){
+                                echo "<img id='icon' src='../icons/dots.png'>";
+                            }
+                        ?>
+                        </td>
+                        <td style='display:none;' name='display-id'><input type="hidden" name="id" value="<?php echo $row['Course_ID']; ?>"><?php echo $row['Course_ID']; ?></td>
+                        <td name='display-name'><?php echo $row['Name']; ?></td>
+                        <td name='display-type'><?php echo $row['Type']; ?></td>
+                        <td name='display-lang'><?php echo $row['Language']; ?></td>
+                        <td name='display-created'><?php echo $row['Created']; ?></td>
+                        <td name='display-start'><?php echo $row['Start']; ?></td>
+                        <td name='display-teacher'>
+                        <?php
+                            $id = $row['Teacher'];
+                            $sql = "SELECT * FROM users WHERE User_ID='$id'";
+                            $result2 = mysqli_query($con, $sql);
+                            $row2 = mysqli_fetch_array($result2);
+                            if($id = $row2['User_ID']){
+                                echo $row2['Name'], " " , $row2['Lastname'];
+                            }
+                        ?>
+                        </td>
+                        <td name='display-price'><?php echo $row['Price']; ?> $</td>
+                        <?php
+                            if($_SESSION['name'] === $row2['Name'] && $_SESSION['lastname'] === $row2['Lastname']){
+                                echo "<td name='display-btn'><button>Edit</button></td>";
+                                echo "<td name='display-btn'><button id='deletebtns'>Delete</button></td>";
+                            }else{
+                                echo "<td name='display-btn'><button>Purchase</button></td>";
+                            }
+                        ?>
+                    </tr>
+                    <?php
+                            }
+                        }
+                        ?>
+                </table>
+            </div>
         </div>
     </div>
 	<div class="footer" style='display: none;'>
