@@ -152,7 +152,7 @@ include("../backend/authorization.php");
                     <option value="Law">Law</option>
                     <option value="Economics ">Economics</option>
                     <option value="Medicine">Medicine</option>
-                    <option value="Business ">Business</option>
+                    <option value="Business">Business</option>
                 </select>
                 <label>Language of the course</label>
                 <input name='lang' type='Text' placeholder='Example:Latvian' required>
@@ -266,7 +266,7 @@ include("../backend/authorization.php");
                         <td name='display-price'><?php echo $row['Price']; ?> $</td>
                         <?php
                             if($_SESSION['name'] === $row2['Name'] && $_SESSION['lastname'] === $row2['Lastname']){
-                                echo "<td name='display-btn'><button>Edit</button></td>";
+                                ?><td name='display-btn'>Your Course</td><?php
                             }else{
                                 echo "<td name='display-btn'><button>Purchase</button></td>";
                             }

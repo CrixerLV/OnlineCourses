@@ -86,51 +86,34 @@ function editdata(){
   }
 }
 
+// Get a reference to the form
+const form = document.getElementById('newcourse');
 
+// Add an event listener for when the form is submitted
+form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
 
-$(document).on('click', '.edit-btn', function() {
-  var x = document.getElementById("edit-container");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-  var row = $(this).closest('tr');
-  row.find('td[name="display-name"] input').prop('disabled', false);
-  $(this).text('Save');
+    // Get the ID of the course to edit
+    const courseId = getCourseId(); // Define this function to return the ID
+
+    // Use AJAX to fetch the course data
+    fetch(`/courses/${courseId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Populate the input fields with the retrieved data
+            document.getElementById('name').value = data.name;
+            document.getElementById('type').value = data.type;
+            document.getElementById('lang').value = data.lang;
+            document.getElementById('start').value = data.start;
+            document.getElementById('price').value = data.price;
+        })
+        .catch(error => {
+            console.error(error);
+        });
 });
 
-
-var editButtons = document.getElementsByClassName('editbtn');
-for (var i = 0; i < editButtons.length; i++) {
-    editButtons[i].addEventListener('click', function() {
-        var editableField = this.parentNode.querySelector('.editable');
-        var inputField = document.createElement('input');
-        inputField.type = 'text';
-        inputField.value = editableField.textContent.trim();
-        inputField.className = 'edit-input';
-        editableField.parentNode.replaceChild(inputField, editableField);
-        var saveButton = document.createElement('button');
-        saveButton.textContent = 'Save';
-        saveButton.className = 'savebtn';
-        inputField.parentNode.insertBefore(saveButton, inputField.nextSibling);
-        saveButton.addEventListener('click', function() {
-            var newValue = inputField.value.trim();
-            var newEditableField = document.createElement('li');
-            newEditableField.textContent = newValue;
-            newEditableField.className = 'editable';
-            inputField.parentNode.replaceChild(newEditableField, inputField);
-            saveButton.parentNode.removeChild(saveButton);
-            var ulId = editableField.parentNode.id;
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'save.php');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log(xhr.responseText);
-                }
-            };
-            xhr.send('ul_id=' + encodeURIComponent(ulId) + '&new_value=' + encodeURIComponent(newValue));
-        });
-    });
+function getCourseId() {
+    // Define this function to return the ID of the course to edit
+    return 37; // Replace with the actual ID
 }
+

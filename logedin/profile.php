@@ -236,8 +236,10 @@ include("../backend/authorization.php");
                         <td name='display-price'><?php echo $row['Price']; ?> $</td>
                         <?php
                             if($_SESSION['name'] === $row2['Name'] && $_SESSION['lastname'] === $row2['Lastname']){
-                                echo "<td name='display-btn'><button>Edit</button></td>";
-                                echo "<td name='display-btn'><button id='deletebtns'>Delete</button></td>";
+                                ?>
+                                <td name='display-btn'><a onclick='return false' href="profile.php?Course_ID=<?php echo $row["Course_ID"];?>&action=edit"><button onclick='toggnewcourse()'>Edit</button></a></td>
+                                <td name='display-btn'><a href="../backend/delete_course.php?Course_ID=<?php echo $row["Course_ID"];?>"><button id='deletebtns'>Delete</button></a></td>
+                            <?php
                             }else{
                                 echo "<td name='display-btn'><button>Purchase</button></td>";
                             }
@@ -248,6 +250,59 @@ include("../backend/authorization.php");
                         }
                         ?>
                 </table>
+                <?php
+                    if (isset($_GET['Course_ID']) && isset($_GET['action']) && $_GET['action'] == 'edit') {
+                        $course_id = $_GET['Course_ID'];
+                        $sql = "SELECT * FROM courses WHERE Course_ID='$course_id'";
+                        $result = mysqli_query($con, $sql);
+                        $course_data = mysqli_fetch_assoc($result);
+                        $name = $course_data['Name'];
+                        $type = $course_data['Type'];
+                        $lang = $course_data['Language'];
+                        $start = $course_data['Start'];
+                        $price = $course_data['Price'];
+                        if(isset($_POST['save'])) {
+                            $name = $_POST['name'];
+                            $type = $_POST['type'];
+                            $lang = $_POST['lang'];
+                            $start = $_POST['start'];
+                            $price = $_POST['price'];
+                            $sqlupd = "UPDATE courses SET Name='$name', Type='$type', Language='$lang', Start='$start', Price='$price' WHERE Course_ID='$course_id'";
+                            if (mysqli_query($con, $sqlupd)) {
+                                echo "Record updated successfully";
+                                echo "<meta http-equiv='refresh' content='0'>";
+                            } else {
+                                echo "Error updating record: " . mysqli_error($con);
+                            }
+                        }
+                    } else {
+                    }
+                    ?>
+                    <form id="newcourse"  method="POST">
+                        <h1>Edit course #<?php echo $course_id;?></h1>
+                        <input type="hidden" name="course_id" value="<?php echo $row['Course_ID']; ?>">
+                        <label>Name of the course</label>
+                        <input name='name' type='Text' placeholder='Example:Journalist' value="<?php echo $name; ?>" required>
+                        <label>Type of the course</label>
+                        <select name='type' required>
+                            <option value="" disabled hidden>Type</option>
+                            <option value="IT" <?php if($type == 'IT') echo 'selected'; ?>>IT</option>
+                            <option value="Architecture" <?php if($type == 'Architecture') echo 'selected'; ?>>Architecture</option>
+                            <option value="Mechanical" <?php if($type == 'Mechanical') echo 'selected'; ?>>Mechanical</option>
+                            <option value="Law" <?php if($type == 'Law') echo 'selected'; ?>>Law</option>
+                            <option value="Economics" <?php if($type == 'Economics') echo 'selected'; ?>>Economics</option>
+                            <option value="Medicine" <?php if($type == 'Medicine') echo 'selected'; ?>>Medicine</option>
+                            <option value="Business" <?php if($type == 'Business') echo 'selected'; ?>>Business</option>
+                        </select>
+                        <label>Language of the course</label>
+                        <input name='lang' type='Text' placeholder='Example:Latvian' value="<?php echo $lang; ?>" required>
+                        <label>Starting date of the course</label>
+                        <input name='start' type='Date' value="<?php echo $start; ?>" required>
+                        <label>Price of the course</label>
+                        <input name='price' type='Number' step="0.01" placeholder="Example:16.99" value="<?php echo $price; ?>" required>
+                        <input name='save' type='Submit' value='Save'>
+                        <button>Close</button>
+                    </form>
             </div>
         </div>
     </div>
