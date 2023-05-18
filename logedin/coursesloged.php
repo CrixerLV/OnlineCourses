@@ -96,49 +96,23 @@ include("../backend/authorization.php");
     </div>
     <div class="main-info">
         <div class="main-info-select">
-            <form id='filter'>
-                <select name="languages" id="lang">
-                        <option value="" disabled selected hidden>Languages</option>
-                        <option value="English">English</option>
-                        <option value="Russian">Russian</option>
-                        <option value="Latvian">Latvian</option>
-                </select>
-                <select name="type" id="type">
-                    <option value="" disabled selected hidden>Type</option>
-                    <option value="IT">IT</option>
-                    <option value="Architecture">Architecture</option>
-                    <option value="Mechanical">Mechanical</option>
-                    <option value="Law">Law</option>
-                    <option value="Economics">Economics</option>
-                    <option value="Medicine">Medicine</option>
-                    <option value="Business">Business </option>
-                </select>
-                <select name="date" id="date">
-                    <option value="" disabled selected hidden>Sort By</option>
-                    <option value="Newest">Newest</option>
-                    <option value="Oldest">Oldest</option>
-                </select>
-                <input type="submit" value="Filter">
-            </form>
-            <form id="search">
-                <input type="text" placeholder="Search">
-                <input type="submit" value="Search">
-            </form>
-                <?php
-                    $email = $_SESSION['email'];
-                    $sql = "SELECT type FROM users WHERE Email='$email'";
-                    $result = mysqli_query($con, $sql);
+            <label>Search by Name,Type or Language!</label>
+        <input type="text" id="table-filter" placeholder="Search..." onkeyup="filterTable()">
+            <?php
+                $email = $_SESSION['email'];
+                $sql = "SELECT type FROM users WHERE Email='$email'";
+                $result = mysqli_query($con, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        while($row = mysqli_fetch_assoc($result)) {
-                            if($row["type"] == "Teacher") {
-                                echo "<button onclick='toggnewcourse()' id='btn-edit'>Create a Course</button>";
-                            }
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        if($row["type"] == "Teacher") {
+                            echo "<button onclick='toggnewcourse()' id='btn-edit'>Create a Course</button>";
                         }
-                    } else {
-                        echo "0 results";
                     }
-                ?>
+                } else {
+                    echo "0 results";
+                }
+            ?>
             <form id="newcourse">
                 <h1>New course</h1>
                 <label>Name of the course</label>

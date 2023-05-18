@@ -117,3 +117,24 @@ function getCourseId() {
     return 37; // Replace with the actual ID
 }
 
+function filterTable() {
+  // Get the input value and convert it to lowercase
+  var input = document.getElementById("table-filter").value.toLowerCase();
+
+  // Get all the table rows
+  var rows = document.querySelectorAll("#datatable");
+
+  // Loop through the rows and hide those that don't match the filter
+  for (var i = 0; i < rows.length; i++) {
+    var name = rows[i].querySelector("[name='display-name']").textContent.toLowerCase();
+    var type = rows[i].querySelector("[name='display-type']").textContent.toLowerCase();
+    var lang = rows[i].querySelector("[name='display-lang']").textContent.toLowerCase();
+
+    // Show the row if the filter matches the name, type, or language
+    if (name.includes(input) || type.includes(input) || lang.includes(input)) {
+      rows[i].style.display = "";
+    } else {
+      rows[i].style.display = "none";
+    }
+  }
+}
