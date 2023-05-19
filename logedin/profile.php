@@ -70,9 +70,6 @@ include("../backend/authorization.php");
             <img>
         </div>
         <div id="profile-side-middle">
-            <ul><li onclick='home()'>Home</li></ul>
-            <ul><li onclick='courses()'>Courses</li></ul>
-            <ul><li onclick='profile()'>Profile</li></ul>
             <?php
                 $email = $_SESSION['email'];
                 $sql = "SELECT type FROM users WHERE Email='$email'";
@@ -81,10 +78,7 @@ include("../backend/authorization.php");
                 if (mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
                         if($row["type"] == "Teacher") {
-                            echo "<ul><li>Create a course</li></ul>";
-                        }
-                        if($row["type"] == "User") {
-                            echo "<ul><li>Become a instructor</li></ul>";
+                            echo "<ul><li onclick='courses()'>Create a course</li></ul>";
                         }
                     }
                 } else {

@@ -75,16 +75,6 @@ include("../backend/authorization.php");
                 $email = $_SESSION['email'];
                 $sql = "SELECT type FROM users WHERE Email='$email'";
                 $result = mysqli_query($con, $sql);
-
-                if (mysqli_num_rows($result) > 0) {
-                    while($row = mysqli_fetch_assoc($result)) {
-                        if($row["type"] == "User") {
-                            echo "<ul><li>Become a instructor</li></ul>";
-                        }
-                    }
-                } else {
-                    echo "0 results";
-                }
             ?>
         </div>
         <div id="profile-side-bottom">
